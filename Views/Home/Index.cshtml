@@ -1,0 +1,52 @@
+﻿@using StocksApp.Models
+@model Stock;
+
+@{
+    ViewBag.Title = "Home";
+}
+
+@if (ViewBag.isError)
+{
+    <h1>Error</h1>
+    <h2>An Unexpected error occured! Please Try Agian!</h2>
+    <p>@ViewBag.Error</p>
+}
+
+else
+{
+    <div class="box trading-panel">
+
+        <div class="flex trading-panel-flex">
+
+            <div id="stock-price-panel">
+                <div class="stock">
+                    <h1 class="stock-title">@Model.StockSymbol</h1>
+
+                    <table>
+                        <tr>
+                            <th>Current: </th>
+                            <td><small>$</small><span class="price">@Model.CurrentPrice.ToString("N")</span></td>
+                        </tr>
+
+                        <tr>
+                            <th>High: </th>
+                            <td><small>$</small><span class="price">@Model.HighestPrice.ToString("N")</span></td>
+                        </tr>
+
+                        <tr>
+                            <th>Low: </th>
+                            <td><small>$</small><span class="price">@Model.LowestPrice.ToString("N")</span></td>
+                        </tr>
+
+                        <tr>
+                            <th>Open: </th>
+                            <td><small>$</small><span class="price">@Model.OpenPirce.ToString("N")</span></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
